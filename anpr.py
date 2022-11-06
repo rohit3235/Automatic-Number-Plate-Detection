@@ -1,14 +1,12 @@
 # Importing Necessary Libraries/Dependencies
 import cv2
 from matplotlib import pyplot as plt
-# from google.colab.patches import cv2_imshow
 import numpy as np
 import imutils
 import easyocr
 img = cv2.imread('car1.JPG')
 def anpr(img):
     #Convert the input image to Grayscale and plot on x,y axis
-    # img = cv2.imread('car1.JPG')
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
     # Apply canny edge detection to the input image and bilateralfilter ( bilateralFilter can reduce unwanted noise very well while keeping edges fairly sharp) with the specified parameters
@@ -34,6 +32,4 @@ def anpr(img):
     reader = easyocr.Reader(['en'])
     result = reader.readtext(cropped_image)
     print(result)
-
 anpr(img)
-
