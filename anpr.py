@@ -1,4 +1,3 @@
-# Importing Necessary Libraries/Dependencies
 import cv2
 from matplotlib import pyplot as plt
 import numpy as np
@@ -24,7 +23,6 @@ def anpr(img):
             break
     mask = np.zeros(gray.shape, np.uint8)
     cv2.drawContours(mask, [location], 0,255, -1)
-    # new_image = cv2.bitwise_and(img, img, mask=mask)
     (x,y) = np.where(mask==255)
     (x1, y1) = (np.min(x), np.min(y))
     (x2, y2) = (np.max(x), np.max(y))
